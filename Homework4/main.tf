@@ -36,15 +36,21 @@ variable public_key {
     type = string
 }
 
-variable "availability_zones" {
+variable availability_zones {
   default = ""
   type = string
 }
 
-variable "count_ins" {
+variable count_ins {
     default = 1
     type = number
 }
+
+variable ports {
+    description = "Provided ports "
+    default = [22 , 80, 443]
+    type = list(number)
+  }
 
   
 
