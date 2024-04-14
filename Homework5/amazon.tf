@@ -16,9 +16,10 @@ data "aws_ami" "amzn2" {
   owners = ["137112412989"] 
 }
 
-resource "aws_instance" "web" {
+resource "aws_instance" "web1" {
   ami           = data.aws_ami.amzn2.id
   instance_type = var.instance[1].ec2_type
+  subnet_id = aws_subnet.public2.id
   vpc_security_group_ids = [aws_security_group.allow_tls.id] 
   user_data = file("httpd.sh")
   

@@ -3,9 +3,13 @@ variable region {
   description = "Provide region"
 }
 
-variable vpc_cidr {
-  type = string
-  description = "Provide vpc cidr block"
+variable "vpc_dns" {
+  type = list(object({
+    vpc_cidr = string
+    vpc_name = string
+    dns_sup  = bool
+    dns_host = bool
+  }))
 }
 
 variable public_cidr {
@@ -34,4 +38,16 @@ variable instance {
 variable ports {
   type        = list(number)
   default     = [22, 80]
+}
+
+variable "rt1" {
+  type        = string
+}
+
+variable "rt2" {
+  type        = string
+}
+
+variable "ig" {
+  type        = string
 }

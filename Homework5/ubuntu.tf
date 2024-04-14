@@ -1,4 +1,3 @@
-
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -26,8 +25,8 @@ resource "aws_instance" "web" {
     Name = var.instance[0].ec2_name
   }
 }
+#  Name = var.instance[0].ec2_name
 
 output ec2 {
   value = aws_instance.web.public_ip
 }
-
